@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mansoor Ahmed — Senior Product Leader | Product Management · Product Marketing · Product Ownership</title>
+<meta name="description" content="Mansoor Ahmed — Senior Product Leader with 20+ years across Siemens, Nokia, Sony Mobile and Du Telecom. Product Management, Product Marketing and Product Ownership. Darwin, NT, Australia.">
+
+<!-- Google Fonts: Plus Jakarta Sans (display) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:        #1B4F8A;   /* primary brand navy */
+  --navy-deep:   #0E2A47;   /* dark sections, footer */
+  --navy-ink:    #16243A;   /* body headings */
+  --ink:         #2A3950;   /* body text */
+  --muted:       #5C6B82;   /* secondary text */
+  --line:        #DCE4EE;   /* hairlines, borders */
+  --bg:          #F7F9FC;   /* page background */
+  --surface:     #FFFFFF;   /* cards */
+  --accent:      #C99A3C;   /* restrained gold — used sparingly */
+  --radius:      14px;
+  --shadow:      0 4px 24px rgba(14, 42, 71, 0.07);
+  --shadow-lift: 0 10px 32px rgba(14, 42, 71, 0.12);
+  --nav-h:       68px;
+  --font-display:'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:   'Inter', system-ui, sans-serif;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--nav-h) + 12px);
+}
+
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.65;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{ font-family:var(--font-display); color:var(--navy-ink); line-height:1.2; }
+
+a{ color:var(--navy); text-decoration:none; }
+a:focus-visible, button:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.container{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+section{ padding:88px 0; }
+
+/* Section heading pattern: small navy eyebrow + display heading */
+.eyebrow{
+  font-family:var(--font-display);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--navy);
+  display:block;
+  margin-bottom:10px;
+}
+.section-title{
+  font-size:clamp(26px, 3.4vw, 36px);
+  font-weight:800;
+  margin-bottom:36px;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.in{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; transition:none; }
+  *{ animation:none !important; transition:none !important; }
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:var(--nav-h);
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  z-index:100;
+}
+.nav-inner{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:18px;
+  color:var(--navy-ink);
+}
+.nav-logo span{ color:var(--navy); }
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--ink);
+  transition:color .2s ease;
+}
+.nav-links a:hover{ color:var(--navy); }
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:8px;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;
+  height:2px;
+  background:var(--navy-ink);
+  margin:5px 0;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  padding:calc(var(--nav-h) + 84px) 0 96px;
+  background:
+    linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-location{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+  margin-bottom:22px;
+  padding:7px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+}
+.hero-location .dot{
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.hero h1{
+  font-size:clamp(38px, 6vw, 58px);
+  font-weight:800;
+  letter-spacing:-0.02em;
+  margin-bottom:14px;
+}
+.hero-role{
+  font-family:var(--font-display);
+  font-size:clamp(17px, 2.2vw, 21px);
+  font-weight:600;
+  color:var(--navy);
+  margin-bottom:20px;
+}
+.hero-tagline{
+  font-size:clamp(16.5px, 2vw, 19px);
+  color:var(--ink);
+  max-width:640px;
+  margin-bottom:36px;
+}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-family:var(--font-display);
+  font-size:15px;
+  font-weight:600;
+  padding:13px 24px;
+  border-radius:10px;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .2s ease, color .2s ease;
+}
+.btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow-lift); }
+.btn-primary{ background:var(--navy); color:#fff; }
+.btn-primary:hover{ background:#16467E; }
+.btn-outline{ background:var(--surface); color:var(--navy); border-color:var(--navy); }
+.btn svg{ width:17px; height:17px; flex:none; }
+
+/* Career span strip under hero actions */
+.hero-strip{
+  margin-top:48px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 36px;
+  font-size:14px;
+  color:var(--muted);
+}
+.hero-strip strong{
+  font-family:var(--font-display);
+  color:var(--navy-ink);
+  font-weight:700;
+  margin-right:6px;
+}
+
+/* ============================================================
+   HERO PHOTO LAYOUT + SUBTITLE
+   ============================================================ */
+.hero-grid{ display:flex; align-items:center; gap:56px; }
+.hero-text{ flex:1; min-width:0; }
+.hero-photo{ flex:none; position:relative; }
+.hero-photo img{
+  width:300px; height:300px;
+  object-fit:cover;
+  border-radius:30px;
+  display:block;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-lift);
+  filter:grayscale(1);            /* keeps the B&W treatment consistent */
+}
+/* Gold corner accent — the page's one flourish */
+.hero-photo::after{
+  content:"";
+  position:absolute;
+  right:-14px; bottom:-14px;
+  width:84px; height:84px;
+  border-right:3px solid var(--accent);
+  border-bottom:3px solid var(--accent);
+  border-radius:0 0 34px 0;
+}
+.hero-role{ margin-bottom:6px !important; }
+.hero-sub{
+  font-family:var(--font-display);
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.05em;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+/* ============================================================
+   TIMELINE SCOPE LINES
+   ============================================================ */
+.timeline-scope{
+  margin-top:8px;
+  font-size:15px;
+  color:var(--muted);
+  max-width:620px;
+  line-height:1.6;
+}
+.timeline-scope strong{
+  font-family:var(--font-display);
+  font-size:13.5px;
+  color:var(--navy);
+  font-weight:700;
+  letter-spacing:0.01em;
+}
+.timeline-scope + .timeline-scope{
+  margin-top:6px;
+  font-size:13.5px;
+  color:var(--muted);
+}
+
+/* ============================================================
+   RECOMMENDATIONS
+   ============================================================ */
+.recs{ background:var(--surface); border-top:1px solid var(--line); }
+.recs-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.rec-card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px 26px 26px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.rec-card::before{
+  content:"\201C";
+  font-family:var(--font-display);
+  font-size:64px;
+  line-height:1;
+  color:var(--accent);
+  opacity:0.4;
+  position:absolute;
+  top:16px; left:22px;
+}
+.rec-quote{
+  font-size:15.5px;
+  color:var(--ink);
+  margin:30px 0 20px;
+  flex:1;
+}
+.rec-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:15px;
+  color:var(--navy-ink);
+}
+.rec-meta{ font-size:13.5px; color:var(--muted); }
+.recs-note{
+  margin-top:20px;
+  font-size:13.5px;
+  color:var(--muted);
+}
+.recs-note a{ font-weight:500; }
+
+@media (max-width: 900px){
+  .recs-grid{ grid-template-columns:1fr; }
+}
+@media (max-width: 860px){
+  .hero-grid{ flex-direction:column-reverse; align-items:flex-start; gap:36px; }
+  .hero-photo img{ width:190px; height:190px; }
+  .hero-photo::after{ width:56px; height:56px; right:-10px; bottom:-10px; }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about p{
+  max-width:760px;
+  font-size:17.5px;
+  margin-bottom:18px;
+}
+.about p strong{ color:var(--navy-ink); font-weight:600; }
+
+/* ============================================================
+   KEY METRICS
+   ============================================================ */
+.metrics{
+  background:var(--navy-deep);
+}
+.metrics .eyebrow{ color:var(--accent); }
+.metrics .section-title{ color:#fff; }
+
+.metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+}
+.metric-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--radius);
+  padding:30px 26px;
+  transition:border-color .2s ease, background .2s ease;
+}
+.metric-card:hover{
+  border-color:rgba(201,154,60,0.55);
+  background:rgba(255,255,255,0.08);
+}
+.metric-value{
+  font-family:var(--font-display);
+  font-size:clamp(34px, 4vw, 44px);
+  font-weight:800;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:8px;
+}
+.metric-value .unit{ font-size:0.55em; font-weight:700; color:var(--accent); }
+.metric-label{
+  font-size:15px;
+  color:#E7EDF5;
+  font-weight:500;
+  margin-bottom:4px;
+}
+.metric-org{
+  font-size:13px;
+  color:#9FB2C9;
+  letter-spacing:0.04em;
+}
+
+/* ============================================================
+   EXPERIENCE TIMELINE
+   ============================================================ */
+.timeline{
+  position:relative;
+  max-width:820px;
+  margin-left:8px;
+  padding-left:34px;
+  border-left:2px solid var(--line);
+}
+.timeline-item{
+  position:relative;
+  padding-bottom:44px;
+}
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-43px;
+  top:6px;
+  width:14px; height:14px;
+  border-radius:50%;
+  background:var(--surface);
+  border:3px solid var(--navy);
+}
+.timeline-item:first-child::before{
+  background:var(--navy);
+  box-shadow:0 0 0 5px rgba(27,79,138,0.15);
+}
+.timeline-dates{
+  font-family:var(--font-display);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:4px;
+}
+.timeline-role{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:2px;
+}
+.timeline-org{
+  font-size:15.5px;
+  color:var(--ink);
+  font-weight:500;
+}
+.timeline-org .loc{ color:var(--muted); font-weight:400; }
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+.skills{ background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.skills-cloud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  max-width:860px;
+}
+.skill-tag{
+  font-family:var(--font-display);
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--navy-ink);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 20px;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+}
+.skill-tag:hover{
+  background:var(--navy);
+  border-color:var(--navy);
+  color:#fff;
+}
+
+/* ============================================================
+   CERTIFICATIONS
+   ============================================================ */
+.certs-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:16px;
+  max-width:920px;
+}
+.cert-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:4px solid var(--navy);
+  border-radius:10px;
+  padding:20px 22px;
+  box-shadow:var(--shadow);
+}
+.cert-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  color:var(--navy-ink);
+  margin-bottom:3px;
+}
+.cert-meta{ font-size:14px; color:var(--muted); }
+.cert-meta .year{ color:var(--accent); font-weight:600; }
+
+/* ============================================================
+   EDUCATION
+   ============================================================ */
+.education{ background:var(--surface); border-top:1px solid var(--line); }
+.edu-card{
+  max-width:760px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:30px 32px;
+  box-shadow:var(--shadow);
+  background:var(--bg);
+}
+.edu-school{
+  font-family:var(--font-display);
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+.edu-degree{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 0;
+  border-top:1px solid var(--line);
+  font-size:16px;
+}
+.edu-degree .year{
+  font-family:var(--font-display);
+  font-weight:700;
+  color:var(--navy);
+  flex:none;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{ background:var(--navy-deep); }
+.contact .eyebrow{ color:var(--accent); }
+.contact .section-title{ color:#fff; margin-bottom:14px; }
+.contact-lede{
+  color:#C8D5E5;
+  max-width:560px;
+  margin-bottom:40px;
+  font-size:17px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  max-width:920px;
+}
+.contact-card{
+  display:block;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--radius);
+  padding:24px;
+  transition:border-color .2s ease, background .2s ease, transform .15s ease;
+}
+.contact-card:hover{
+  border-color:rgba(201,154,60,0.6);
+  background:rgba(255,255,255,0.09);
+  transform:translateY(-2px);
+}
+.contact-type{
+  font-family:var(--font-display);
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:7px;
+}
+.contact-value{
+  color:#fff;
+  font-weight:500;
+  font-size:15.5px;
+  word-break:break-word;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background:var(--navy-deep);
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding:26px 0;
+}
+.footer-inner{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:space-between;
+  font-size:13.5px;
+  color:#8FA3BC;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px){
+  .metrics-grid{ grid-template-columns:repeat(2, 1fr); }
+  .contact-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width: 720px){
+  section{ padding:64px 0; }
+
+  .nav-toggle{ display:block; }
+  .nav-links{
+    position:fixed;
+    top:var(--nav-h);
+    left:0; right:0;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    gap:0;
+    padding:8px 0 14px;
+    transform:translateY(-12px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    box-shadow:var(--shadow-lift);
+  }
+  .nav-links.open{
+    transform:none;
+    opacity:1;
+    pointer-events:auto;
+  }
+  .nav-links a{
+    display:block;
+    padding:13px 24px;
+    font-size:16px;
+  }
+
+  .metrics-grid{ grid-template-columns:1fr; }
+  .certs-grid{ grid-template-columns:1fr; }
+
+  .timeline{ margin-left:2px; padding-left:26px; }
+  .timeline-item::before{ left:-35px; }
+
+  .edu-degree{ flex-direction:column; gap:2px; }
+  .hero-actions .btn{ width:100%; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">Mansoor<span>&nbsp;Ahmed</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div class="hero-text">
+    <div class="hero-location reveal">
+      <span class="dot" aria-hidden="true"></span>
+      Darwin, NT, Australia
+    </div>
+    <h1 class="reveal">Mansoor Ahmed</h1>
+    <p class="hero-role reveal">Senior Product Leader</p>
+    <p class="hero-sub reveal">Product Management &nbsp;·&nbsp; Product Marketing &nbsp;·&nbsp; Product Ownership</p>
+    <p class="hero-tagline reveal">
+      I build device portfolios, go-to-market engines and transformation programs that move
+      real revenue, proven across two decades at Siemens, Nokia, Sony and Du Telecom.
+    </p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="mailto:Mansoor.a@outlook.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        Email me
+      </a>
+      <a class="btn btn-outline" href="https://linkedin.com/in/1mansoorahmed" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-8.5c0-2.03-.04-4.64-2.83-4.64-2.83 0-3.27 2.21-3.27 4.5V24H8V8z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn btn-outline" href="Mansoor_Ahmed_Master_CV.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Download CV
+      </a>
+    </div>
+    <div class="hero-strip reveal">
+      <span><strong>20+</strong>years in product</span>
+      <span><strong>7</strong>global brands</span>
+      <span><strong>2</strong>disciplines: PM &amp; PMM</span>
+      <span><strong>MWC</strong>Barcelona presenter, Sony Mobile</span>
+    </div>
+    </div><!-- /hero-text -->
+    <div class="hero-photo reveal">
+      <img src="images/Mansoor_Headshot.png" alt="Mansoor Ahmed, Senior Product Leader" width="300" height="300" loading="eager">
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="about" id="about">
+  <div class="container reveal">
+    <span class="eyebrow">About</span>
+    <h2 class="section-title">Product leadership, built brand by brand</h2>
+    <p>
+      I have spent more than 20 years managing products and taking them to market for
+      <strong>Tier 1 global brands</strong>: Siemens Mobile, Nokia, Sony Mobile, and most recently
+      Du Telecom in Dubai, where I led device strategy within a major digital transformation program.
+    </p>
+    <p>
+      My career runs on a rare dual track: <strong>product management and product marketing in equal depth</strong>,
+      from portfolio strategy and commercial P&amp;L through to positioning, launch and channel execution.
+      A consistent software thread runs through it, including CRM integration, digital platform delivery,
+      and most recently <strong>AI and automation programs</strong> that lifted operational productivity by 65%.
+    </p>
+    <p>
+      This includes hands-on requirements work across BSS and CRM platforms — leading <strong>SaaS marketplace commercialization</strong> with CloudBlue, owning the device <strong>Product Catalog</strong> within Du's BSS environment, and defining journey logic for <strong>Pega-driven decisioning</strong> across upsell, cross-sell, and onboarding use cases.
+    </p>
+    <p>
+      I am now based in Darwin, NT, with <strong>full Australian work rights</strong>, bringing 20 years of global product experience across five continents to my next chapter here.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ KEY METRICS ============================ -->
+<section class="metrics" id="results">
+  <div class="container reveal">
+    <span class="eyebrow">Results</span>
+    <h2 class="section-title">Numbers that survived the audit</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value"><span class="count" data-target="47">0</span><span class="unit">%</span></div>
+        <div class="metric-label">iPhone sales growth</div>
+        <div class="metric-org">Du Telecom</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><span class="count" data-target="22">0</span><span class="unit">% YoY</span></div>
+        <div class="metric-label">Revenue growth</div>
+        <div class="metric-org">Du Telecom</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><span class="count" data-target="65">0</span><span class="unit">%</span></div>
+        <div class="metric-label">Productivity uplift via AI/ML</div>
+        <div class="metric-org">Leverify</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><span class="count" data-target="36">0</span><span class="unit">%</span></div>
+        <div class="metric-label">Volume growth</div>
+        <div class="metric-org">Sony Mobile</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">4<span class="unit">&nbsp;→&nbsp;</span><span class="count" data-target="15">0</span></div>
+        <div class="metric-label">Team scaled</div>
+        <div class="metric-org">xNARA Biologics</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value"><span class="count" data-target="40">0</span><span class="unit">+</span></div>
+        <div class="metric-label">Product launches</div>
+        <div class="metric-org">Nokia MEA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EXPERIENCE ============================ -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Experience</span>
+      <h2 class="section-title">Career timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Oct 2023 – Jun 2026</div>
+        <h3 class="timeline-role">Device Lead, Digital Transformation</h3>
+        <div class="timeline-org">Du Telecom <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">Led multi-segment device portfolio strategy and P&amp;L across Consumer Mobile, Consumer Fixed, and Enterprise Fixed, driving cross-functional delivery with product, IT, CRM, channel, and Tier 1 OEM partners through a major digital transformation program.</p>
+        <p class="timeline-scope">Led SaaS marketplace commercialization in partnership with CloudBlue, owned the device Product Catalog (POC) within Du's BSS environment, and defined Pega-driven journey triggers for upsell, cross-sell, onboarding, and device buyback.</p>
+        <p class="timeline-scope"><strong>↑ 47% iPhone sales growth &nbsp;·&nbsp; 22% YoY DIP revenue growth &nbsp;·&nbsp; 20% YoY handset volume growth</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Jun 2022 – Sep 2023</div>
+        <h3 class="timeline-role">Product Marketing Manager</h3>
+        <div class="timeline-org">xNARA Biologics <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">First commercial hire, reporting to the CMO. Built the product marketing and customer support function from scratch, acted as product owner for the company app and website build, and delivered the end-to-end Salesforce CRM implementation.</p>
+        <p class="timeline-scope"><strong>↑ Team scaled 4 → 15 &nbsp;·&nbsp; ~2,000 active customers at departure</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Feb 2021 – Jun 2022</div>
+        <h3 class="timeline-role">Global Sourcing &amp; Brand Relations Manager</h3>
+        <div class="timeline-org">Leverify (Zaman Technology) <span class="loc">· Islamabad, Pakistan (Remote)</span></div>
+        <p class="timeline-scope">Integrated AI and ML automation into global sourcing and procurement workflows, delivering a 65% productivity uplift and 35% margin improvement through data-informed vendor decisions.</p>
+        <p class="timeline-scope"><strong>↑ 65% productivity uplift via AI/ML &nbsp;·&nbsp; 35% margin improvement</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Dec 2018 – Mar 2020</div>
+        <h3 class="timeline-role">Product Marketing Manager</h3>
+        <div class="timeline-org">Muller &amp; Phipps MEA <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">Led the Honor Mobile launch across MEA, owning the full go-to-market strategy and reaching 85% channel coverage at launch with 20% retail sellout growth in the first three months.</p>
+        <p class="timeline-scope"><strong>↑ 85% channel coverage at launch &nbsp;·&nbsp; 20% retail sellout growth in 90 days</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Oct 2011 – Nov 2018</div>
+        <h3 class="timeline-role">Product Marketing Manager</h3>
+        <div class="timeline-org">Sony Mobile <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">Led MEA launches of Xperia flagship handsets across seven years, served as regional product owner for Xperia Lounge, building its local content ecosystem with Sony Electronics, Sony Pictures, Sony Television, and partners including Gameloft. Selected to represent Sony Mobile MEA at MWC Barcelona, presenting to global partners, customers, and media.</p>
+        <p class="timeline-scope"><strong>↑ 36% volume growth &nbsp;·&nbsp; 38% sales growth &nbsp;·&nbsp; 13% margin improvement — FY2016–17</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Jan 2007 – Oct 2011</div>
+        <h3 class="timeline-role">Product Manager</h3>
+        <div class="timeline-org">Nokia <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">Managed Nokia's Entertainment range across MEA through 40+ launches, including the regional rollout of the Nokia Music Store and the Nokia 5800 XpressMusic, Nokia's first touchscreen smartphone.</p>
+        <p class="timeline-scope"><strong>↑ 40+ product launches across MEA</strong></p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dates">Aug 2001 – Nov 2006</div>
+        <h3 class="timeline-role">Product Manager</h3>
+        <div class="timeline-org">Siemens Mobile <span class="loc">· Dubai, UAE</span></div>
+        <p class="timeline-scope">Managed portfolio strategy, pricing, and go-to-market execution across MEA, delivering 27% customer penetration growth through targeted promotional programs and partner activation.</p>
+        <p class="timeline-scope"><strong>↑ 27% customer penetration growth</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RECOMMENDATIONS ============================ -->
+<section class="recs" id="recommendations">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">What colleagues say</span>
+      <h2 class="section-title">On the record</h2>
+    </div>
+    <div class="recs-grid">
+      <div class="rec-card reveal">
+        <p class="rec-quote">Mansoor is a professional and extremely passionate product manager&hellip; I'd recommend him to any organization looking to inject energy and passion into the product management area.</p>
+        <div class="rec-name">Jason Smith</div>
+        <div class="rec-meta">Head of Direct to Consumer Business &amp; New Business Creation, Sony Europe &middot; managed Mansoor directly</div>
+      </div>
+      <div class="rec-card reveal">
+        <p class="rec-quote">Mansoor is an amazing talent&hellip; a strong individual who drives continuous learning, a passion to learn new things everyday and make his colleagues inspired to compete at each level.</p>
+        <div class="rec-name">Deepak Nair</div>
+        <div class="rec-meta">Director Ecommerce MENA, Samsung Electronics</div>
+      </div>
+      <div class="rec-card reveal">
+        <p class="rec-quote">He possesses a remarkable ability to distill complex product details into compelling and clear messaging that resonates with both customers and stakeholders.</p>
+        <div class="rec-name">Melissa Demir&ouml;rs</div>
+        <div class="rec-meta">Influencer &amp; Affiliate Marketing Manager &middot; worked with Mansoor at xNARA Biologics</div>
+      </div>
+    </div>
+    <p class="recs-note reveal">From LinkedIn recommendations &middot; <a href="https://www.linkedin.com/in/1mansoorahmed/details/recommendations/" target="_blank" rel="noopener">read all recommendations on LinkedIn</a></p>
+  </div>
+</section>
+
+<!-- ============================ SKILLS ============================ -->
+<section class="skills" id="skills">
+  <div class="container reveal">
+    <span class="eyebrow">Core skills</span>
+    <h2 class="section-title">What I bring to the table</h2>
+    <div class="skills-cloud">
+      <span class="skill-tag">Product Strategy</span>
+      <span class="skill-tag">Go-to-Market Execution</span>
+      <span class="skill-tag">Digital Transformation</span>
+      <span class="skill-tag">Product Marketing</span>
+      <span class="skill-tag">Agile / SAFe</span>
+      <span class="skill-tag">Salesforce CRM</span>
+      <span class="skill-tag">AI &amp; Automation</span>
+      <span class="skill-tag">Vendor Management</span>
+      <span class="skill-tag">Stakeholder Management</span>
+      <span class="skill-tag">Commercial P&amp;L</span>
+      <span class="skill-tag">Team Leadership</span>
+      <span class="skill-tag">Cross-functional Delivery</span>
+      <span class="skill-tag">SaaS Go-to-Market</span>
+      <span class="skill-tag">BSS / Product Catalog</span>
+      <span class="skill-tag">Pega Decisioning Logic</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CERTIFICATIONS ============================ -->
+<section class="certifications" id="credentials">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Certifications</span>
+      <h2 class="section-title">Credentials, current and foundational</h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-name">Harvard Management Essentials</div>
+        <div class="cert-meta">Harvard Business Publishing · <span class="year">2025</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">Introduction to Modern AI</div>
+        <div class="cert-meta">Cisco · <span class="year">2025</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">Data Analytics Essentials</div>
+        <div class="cert-meta">Cisco · <span class="year">2025</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">GenAIBIZ: AI Business Strategy</div>
+        <div class="cert-meta">CertNexus · <span class="year">2024</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">SAFe 5.0 Agilist</div>
+        <div class="cert-meta">Scaled Agile · <span class="year">2023</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">Certified Product Manager (CPM)</div>
+        <div class="cert-meta">AIPMM · <span class="year">2013</span></div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-name">Certified Product Marketing Manager (CPMM)</div>
+        <div class="cert-meta">AIPMM · <span class="year">2013</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EDUCATION ============================ -->
+<section class="education" id="education">
+  <div class="container reveal">
+    <span class="eyebrow">Education</span>
+    <h2 class="section-title">Australian-educated, globally applied</h2>
+    <div class="edu-card">
+      <div class="edu-school">University of Wollongong, Australia</div>
+      <div class="edu-degree">
+        <span>Master of International Business (MIB)</span>
+        <span class="year">2004</span>
+      </div>
+      <div class="edu-degree">
+        <span>Bachelor of Business Administration (BBA)</span>
+        <span class="year">2001</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="contact" id="contact">
+  <div class="container reveal">
+    <span class="eyebrow">Contact</span>
+    <h2 class="section-title">Let's talk product</h2>
+    <p class="contact-lede">
+      Open to Product Manager and Product Marketing roles across Australia,
+      on-site in Darwin or remote-first nationwide.
+    </p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:Mansoor.a@outlook.com">
+        <div class="contact-type">Email</div>
+        <div class="contact-value">Mansoor.a@outlook.com</div>
+      </a>
+      <a class="contact-card" href="tel:+61450509138">
+        <div class="contact-type">Phone</div>
+        <div class="contact-value">+61 450 509 138</div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/1mansoorahmed" target="_blank" rel="noopener">
+        <div class="contact-type">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/1mansoorahmed</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Mansoor Ahmed · Darwin, NT, Australia</span>
+    <span>Senior Product Leader &middot; Product Management &middot; Product Marketing &middot; Product Ownership</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   MOBILE NAV TOGGLE
+   ============================================================ */
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var links  = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Close the menu after a link is tapped
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+
+/* ============================================================
+   SCROLL REVEAL (IntersectionObserver)
+   ============================================================ */
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+
+  if(reduced || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach(function(el){ io.observe(el); });
+})();
+
+/* ============================================================
+   METRIC COUNT-UP
+   Counts each .count element from 0 to its data-target
+   the first time the metrics section scrolls into view.
+   ============================================================ */
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var counters = document.querySelectorAll('.count');
+
+  function setFinal(){
+    counters.forEach(function(el){ el.textContent = el.dataset.target; });
+  }
+
+  if(reduced || !('IntersectionObserver' in window)){
+    setFinal();
+    return;
+  }
+
+  function animate(el){
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 1100;
+    var start = null;
+
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      // Ease-out cubic for a confident, decelerating count
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  counters.forEach(function(el){ io.observe(el); });
+})();
+
+</script>
+
+</body>
+</html>
